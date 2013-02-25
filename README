@@ -1,0 +1,28 @@
+Android-AP-Mapper is a Python utility that runs under android-scripting (http://code.google.com/p/android-scripting/).  Included are several other scripts to manipulate the generated output.
+
+This was a project assigned by Sebastien Goasguen (Clemson University) in the Fall semester of 2011.
+
+Directions:
+1) Start android app
+2) Click start/stop button to start the scan
+3) Proceed to scan the desired area
+4) Periodically check the phone to make sure the script is still running
+5) When finished, click the start/stop toggle button again to stop the scan
+6) Click the exit button to return to the command line screen to check for any errors
+7) Extract log file from the phone
+8) Run VerifyLog.py to check for any issues
+9) Run logToDic.py to generate dictionary
+10) Run one of the KML conversion scripts to get your map
+11) Host the map or open it with Google Earth
+
+Files:
+apStats.py        -> generate statistics from dictionary file, flags to filter out guest networks / tigernet
+gpsDatToKML.py    -> generate KML file from dictionary file
+logToDic.py       -> generate dictionary from android script's log file, handles duplicates
+verifyLog.py      -> checks for errors in log file and removes offending lines
+wepKML.py         -> generate KML file for WEP only
+wpa2KML.py        -> generate KML file for WPA2 only
+wpaKML.py         -> generate KML file for WPA only
+
+androidTest.py    -> main file for Android app
+testing.html      -> GUI for app

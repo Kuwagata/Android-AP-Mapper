@@ -1,0 +1,58 @@
+<html>
+   <head>
+      <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+      <title>Text to Speech</title>
+      <style type="text/css">
+         html, body {height: 100%; margin: 0; padding: 0;}
+         #formDiv { margin: 50px auto; width: 150px; padding: 25px 50px 50;
+            height: 300px; text-align: center; }
+         input {
+            text-shadow: 0px 1px 2px #fff;
+            -oz-border-radius:30px;
+            -webkit-border-radius:30px;
+            -opera-border-radius:30px;
+            -khtml-border-radius:30px;
+            border-radius:30px;
+            text-align: center;
+            margin: 20px auto;
+            width: auto;
+            padding: 5px 15px;
+            background: #d3ddf4;
+            border: 1px solid #729ed3;
+            color: #5878a0;
+         }
+      </style>
+      <script>
+         var droid = new Android();
+
+         var toggle_scan = function() {
+            droid.eventPost("scanevent", "toggle");
+         }
+         var pause = function() {
+            droid.eventPost("scanevent", "pause");
+         }
+         var writeFile = function() {
+            droid.eventPost("scanevent", "write");
+         }
+         var exitSignal = function() {
+            droid.eventPost("scanevent", "exit")
+         }
+      </script>
+   </head>
+   <body>
+      <div id="formDiv">
+         <form onsubmit="toggle_scan(); return false;">
+            <input value="Start / Stop" type="submit">
+         </form>
+         <form onsubmit="pause(); return false;">
+            <input value="Pause" type="submit">
+         </form>
+         <form onsubmit="writeFile(); return false;">
+            <input value="Write File" type="submit">
+         </form>
+         <form onsubmit="exitSignal(); return false;">
+            <input value="Exit" type="submit">
+         </form>
+      </div>
+   </body>
+</html>
